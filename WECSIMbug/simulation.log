@@ -1,0 +1,17 @@
+
+WEC-Sim Read Input File ...   
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('lt')" style="font-weight:bold"> < </a>
+Not enough input arguments.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('wecSim', '/Users/ghleila/Downloads/WaveEnergyConversion/WaveModel/WEC-Sim-master/source/wecSim.m', 90)" style="font-weight:bold">wecSim</a> (<a href="matlab: opentoline('/Users/ghleila/Downloads/WaveEnergyConversion/WaveModel/WEC-Sim-master/source/wecSim.m',90,0)">line 90</a>)
+        if h5Info.bytes < 1000
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test', '/Users/ghleila/Downloads/WaveEnergyConversion/wec2/wec/WECSIMbug/test.m', 15)" style="font-weight:bold">test</a> (<a href="matlab: opentoline('/Users/ghleila/Downloads/WaveEnergyConversion/wec2/wec/WECSIMbug/test.m',15,0)">line 15</a>)
+    wecSim;
+} 
+test
+WEC-Sim: An open-source code for simulating wave energy converters
+Version: NOT DEFINED
+
+Initializing the Simulation Class...
+	Case Dir: /Users/ghleila/Downloads/WaveEnergyConversion/wec2/wec 

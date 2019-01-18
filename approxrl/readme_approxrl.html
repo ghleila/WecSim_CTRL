@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ApproxRL: A Matlab Toolbox for Approximate RL and DP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Description" content="Description of ApproxRL: A Matlab Toolbox for Approximate RL and DP, developed by Lucian Busoniu. Code used in the book Reinforcement Learning and Dynamic Programming Using Function Approximators,
+by Lucian Busoniu, Robert Babuska, Bart De Schutter, and Damien Ernst.">
+<style type="text/css">
+/*******************
+ *   MAIN STYLES   *
+ *******************/
+body {
+    margin: 0em .3em 0em .3em;
+    font-family: Arial;
+    font-size: 10pt;
+    color: #0a3080;
+    padding-left: 1em;
+    padding-right: 1.5em;
+}
+
+p {
+    margin-top: .4em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+/** Version of paragraph with tight margins. */
+p.tight {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: .3em;
+    font-size: 15pt;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h2 {
+    margin-top: .5em;
+    margin-bottom: .4em;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+h3 {
+    margin-top: .4em;
+    margin-bottom: .3em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+hr {
+    border: none;
+    height: .2em;
+    background-color: #9098a8;
+}
+
+/* LINK STYLES */
+
+a { color: #0a3080; }
+a:hover { color: #0f70c0; }
+a img { border: none; }
+
+/** Discrete links. **/
+a.discreet { font-weight: normal; text-decoration: none; border-bottom: 1px #cccccc solid; }
+a.discreet:hover { text-decoration: underline; border-bottom: none; }
+
+/** Strong links. **/
+a.strong { font-weight: bold; }
+
+/* Plain anchor. Remove all styling. */
+a.plainanchor { color: #0a3080; text-decoration: none; border: none; }
+a.plainanchor:hover { color: #0a3080; text-decoration: none; border: none; }
+
+/* "Button" link. */
+a.button { font-weight: bold; color: #214795; text-decoration: none; }
+a.button:hover { color: #3293C3; text-decoration: underline; }
+a.hide-button {
+    font-weight: bold;
+    color: #214795;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+}
+a.hide-button:hover { color: #3293C3; text-decoration: underline; }
+
+
+a.note-link {
+    margin-left: .2em;
+    margin-right: .2em;
+    font-weight: normal;
+    color: #214795;
+    text-decoration: none;
+/*    border-bottom-style: solid;
+    border-bottom-color: #999999;
+    border-bottom-width: 1px;*/
+}
+a.note-link:hover {
+    color: #3293C3;
+    text-decoration: underline;
+    border-bottom: none;
+}
+
+/* GENERIC CLASSES */
+
+.note {
+    color: #092051;
+    font-size: .8em;
+}
+.footer {
+    margin-top: 1em;
+    color: #092051;
+    font-size: .8em;
+}
+
+.mfile {
+    font-family: Courier New;
+    font-size: 10pt;
+    color: #082040;
+}
+
+.path {
+    font-style: italic;
+    color: #082040;
+}
+</style>
+</head>
+<body>
+<h1>ApproxRL: A Matlab Toolbox for Approximate RL and DP</h1>
+
+This toolbox contains Matlab implementations of a number of approximate reinforcement learning (RL) and dynamic programming (DP) algorithms. Notably, it contains the algorithms used in the numerical examples from the book:
+<blockquote>
+L. Busoniu, R. Babuska, B. De Schutter, and D. Ernst, <strong>Reinforcement Learning and Dynamic Programming Using Function Approximators</strong>, CRC Press, <em>Automation and Control Engineering</em> Series. April 2010, 280 pages, ISBN 978-1439821084.
+</blockquote>
+see <a href="http://www.dcsc.tudelft.nl/rlbook">http://www.dcsc.tudelft.nl/rlbook</a>, as well as a number of other algorihtms.
+
+<h2>Features</h2>
+<ul>
+<li>Algorithms for approximate value iteration: grid Q-iteration (<span class="mfile">gridqi</span>), fuzzy Q-iteration (<span class="mfile">fuzzyqi</span>), and fitted Q-iteration with nonparametric and neural network approximators (<span class="mfile">fittedqi</span>). In addition, an implementation of fuzzy Q-iteration with cross-entropy (CE) optimization of the membership functions is provided (<span class="mfile">cefuzzyqi</span>).
+
+<li>Algorithms for approximate policy iteration: least-squares policy iteration (<span class="mfile">lspi</span>), policy iteration with LSPE-Q policy evaluation (<span class="mfile">lspe</span>), online LSPI (<span class="mfile">lspionline</span>) and online policy iteration with LSPE-Q (<span class="mfile">lspeonline</span>), as well as online LSPI with explicitly parameterized and monotonic policies (<span class="mfile">lspihonline</span>). These algorithms all support generic Q-function approximators (and, for <span class="mfile">lspihonline</span>, generic policy approximators), of which a variety are already implemented, see <span class="mfile">create_approx</span> and the <span class="path">approx</span> subdirectory of the toolbox.
+
+<li>Algorithms for approximate policy search: policy search with adaptive basis functions, using the CE method (<span class="mfile">cerbfps</span>), and the DIRECT method for global optimization (<span class="mfile">optrbfps</span>). An additional generic policy search algorithm, with a configurable optimization technique and generic policy approximators, is given in (<span class="mfile">optps</span>).
+
+<li>Implementations of several well-known reinforcement learning benchmarks (the car-on-the-hill, bicycle balancing, inverted pendulum swingup), as well as more specialized control-oriented tasks (DC motor, robotic arm control) and a highly challenging HIV infection control task. See the <span class="path">systems</span> subdirectory of the toolbox.
+
+<li>A set of thoroughly commented demonstrations illustrating how all these algorithms can be used.
+
+<li>A standardized task interface means that users will be able to implement their own tasks (see <span class="mfile">sample_problem</span>, <span class="mfile">sample_mdp</span>). The algorithms functions also follow standardized input-output conventions, and use a highly flexible, standardized configuration mechanism.
+
+<li>Optimized Q-iteration and policy iteration implementations, taking advantage of Matlab built-in vectorized and matrix operations (many of them exploiting LAPACK and BLAS libraries) to run extremely fast.
+
+<li>Extensive result inspection facilities (plotting of policies and value functions, execution and solution performance statistics, etc.).
+
+<li>Implementations of several <em>classical</em> RL and DP algorithms for discrete problems: Q-learning and SARSA with or without eligibility traces (<span class="mfile">qlearn</span>, <span class="mfile">sarsa</span>), Q-iteration (<span class="mfile">qiter</span>), and policy iteration with Q-functions (<span class="mfile">piter</span>). A cleaning-robot discrete RL task is implemented, following the standardized problem definition framework, and can be used as an example for implementing additional discrete tasks.
+
+</ul>
+
+<h2>Getting started</h2>
+
+<ol>
+
+<li>Unzip the archive into a directory of your choice.
+
+<li>Before using the toolbox, you will need to obtain two additional functions provided by MathWorks:
+<ul>
+<li><span class="mfile">ode4</span>, the 4th order Runge-Kutta method for numerical integration. Freely available for download from <a href="http://www.mathworks.com/support/tech-notes/1500/1510.html#fixed">http://www.mathworks.com/support/tech-notes/1500/1510.html#fixed</a>. Download the file <span class="mfile">ode4.m</span> and drop it into the <span class="path">lib</span> subdirectory of the toolbox.
+<li><span class="mfile">dsxy2figxy</span>, a function for positioning figure annotations. Available in the example files of the basic Matlab distribution, search for the string "dsxy2figxy" in the Matlab documentation. Save the function under the filename <span class="mfile">dsxy2figxy.m</span> in the <span class="path">lib</span> subdirectory.
+</ul>
+
+<li>Start up Matlab, point it to the directory where you unzipped the file, and run <span class="mfile">startupapproxrl</span>.
+
+<li>Navigate to the <span class="path">demo</span> subdirectory and open the demos. Five demonstration scripts are provided: <span class="mfile">qi_demo</span>, illustrating the use of Q-iteration algorithms; <span class="mfile">pi_demo</span>, for offline and online policy iteration; <span class="mfile">ps_opt_demo</span>, for policy search and fuzzy Q-iteration with CE-optimized MFs; <span class="mfile">cleaningrobot_demo</span>, an interactive demo illustrating the use of the classical RL and DP algorithms and their results for the cleaning robot problem; and <span class="mfile">invertedpendulum_demo</span>, an interactive demo illustrating how several approximation-based algorithms work on the inverted pendulum problem. Start the demo scripts from the Matlab prompt to run all the algorithms in a row, or open them in the editor and run them in cell-mode, algorithm-by-algorithm. The comments in the demos should provide enough information for you to get started with using the toolbox.
+
+</ol>
+
+<h2>Software requirements</h2>
+
+<p>
+The basic toolbox requires Matlab 7.3 (R2006b) or later, with the Statistics toolbox included. Some algorithms require additional specialized software, as follows:
+<ul>
+<li><span class="mfile">lspihonline</span> requires the Optimization toolbox of Matlab.
+<li><span class="mfile">optps</span> requires the Genetic Algorithms and Direct Search toolbox of Matlab.
+<li><span class="mfile">optrbfps</span> requires the TomLab base package (<a href="http://tomopt.com/">http://tomopt.com/</a>).
+</ul>
+Additionally, <span class="mfile">fittedqi</span>, when used with extra-trees approximators, employs the regression trees package of Pierre Geurts, which is redistributed &ndash; with Pierre's permission &ndash; with the toolbox, in the subdirectory <span class="path">lib/regtrees</span>. For convenience, precompiled Linux and Mac OS X (64 bits) and Windows (32 bits) MEX-files of the main entry function into the package are included.
+
+
+<h3>Contact</h3>
+
+If you get stuck anywhere using the code, chance upon bugs or missing functions, or have any questions, comments, or suggestions, please contact me at <a href="mailto:i.l.busoniu@tudelft.nl">i.l.busoniu@tudelft.nl</a>. I'll be glad to hear from you!
+
+<p>
+<em>Lucian Busoniu, June 2010</em>
+
+<p class="note" style="margin-top: 1em">
+<strong>Acknowledgments:</strong> Pierre Geurts was extremely kind to supply the code for building (ensembles of) regression trees, and allow the redistribution of his code with the toolbox. This code was developed in close interaction with Robert Babuska, Bart De Schutter, and Damien Ernst. Several functions are taken from/inspired by code written by Robert Babuska.
+
+<p class="note">
+<strong>Final notes:</strong> This software is provided as-is, without any warranties. So, if you decide to control your nuclear power plant with it, better do your own verifications beforehand :) I have only tested the toolbox in Windows XP, but it should also work in other operating systems, with some possible minor issues due to, e.g., the use of backslashes in paths. The main algorithm and problem files are thoroughly commented, and should not be difficult to understand given some experience with Matlab. However, this toolbox is very much work-in-progress, which has some implications. In particular, you will find TODO items, WARNINGs that some code paths have not been thoroughly tested, and some options and hooks for things that have not yet been implemented. Lower-level functions generally still have descriptive comments, although these may be sparser in some cases.
+
+</body>
+</html>
