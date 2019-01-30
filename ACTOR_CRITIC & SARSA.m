@@ -130,6 +130,7 @@ if sprand(1,1,1) > 1.0; o=rando; %This line sets random exploration even with pr
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %TDLEARN COMPUTATIONS FOR TDLEARNING OF VALUE AND ACTION-VALUES TDlearning (Neocortex==0) CONDITIONAL
+%checking with david
 
 %These graphics show the value function V of each state (not the Q)
 xC(ov,oh)=64*(1-2*V((ov-1)*hz+oh));
